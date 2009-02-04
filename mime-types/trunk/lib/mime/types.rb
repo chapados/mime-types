@@ -318,7 +318,7 @@ module MIME
       def from_hash(hash) #:yields MIME::Type.new:
         type = {}
         hash.each_pair do |k, v| 
-          type[k.to_s.tr('-A-Z', '_a-z').to_sym] = v
+          type[k.to_s.downcase.gsub(/\-/,'_').to_sym] = v
         end
 
         m = MIME::Type.new(type[:content_type]) do |t|
