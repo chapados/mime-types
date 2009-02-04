@@ -121,7 +121,7 @@ module MIME
     attr_accessor :extensions
     remove_method :extensions= ;
     def extensions=(ext) #:nodoc:
-      @extensions = ext.to_a.flatten.compact
+      @extensions = [ext].flatten.compact
     end
 
     # The encoding (7bit, 8bit, quoted-printable, or base64) required to
